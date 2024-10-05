@@ -1,0 +1,14 @@
+name: GitHub Actions Demo
+run-name: build luckfox max image and toolchain with new uclibc
+on: [push]
+jobs:
+  build:
+    name: build sdk
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt-get install -y git ssh make gcc gcc-multilib g++-multilib module-assistant expect g++ gawk texinfo libssl-dev bison flex fakeroot cmake unzip gperf autoconf device-tree-compiler libncurses5-dev pkg-config bc python-is-python3 passwd openssl openssh-server openssh-client vim file cpio rsync
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: |
+          ln -s project/cfg/BoardConfig_IPC/BoardConfig-SPI_NAND-Buildroot-RV1106_Luckfox_Pico_Pro_Max-IPC.mk
+          ./build.sh
