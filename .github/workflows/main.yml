@@ -10,6 +10,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - run: |
+          mkdir config
           #cp myconfig/buildroot_defconfig sysdrv/source/buildroot/buildroot-2023.02.6/configs/luckfox_pico_defconfig
           #ln -s sysdrv/source/buildroot/buildroot-2023.02.6/configs/luckfox_pico_defconfig config/buildroot_defconfig
           cp myconfig/buildroot_defconfig config/buildroot_defconfig
