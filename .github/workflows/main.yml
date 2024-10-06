@@ -11,12 +11,7 @@ jobs:
         uses: actions/checkout@v4
       - run: |
           ln -s project/cfg/BoardConfig_IPC/BoardConfig-SPI_NAND-Buildroot-RV1106_Luckfox_Pico_Pro_Max-IPC.mk .BoardConfig.mk
-          cp myconfig/kernel_defconfig sysdrv/source/kernel/arch/arm/configs/luckfox_rv1106_linux_defconfig
-          mkdir config
-          ln -s sysdrv/source/kernel/arch/arm/configs/luckfox_rv1106_linux_defconfig config/kernel_defconfig
-          ln -s sysdrv/source/kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-pro-max.dts config/dts_config
-          ./build.sh rootfs
-          cp myconfig/buildroot_defconfig sysdrv/source/buildroot/buildroot-2023.02.6/configs/luckfox_pico_defconfig
+          cp -r myconfig config
           ./build.sh
           tar -czvf host.tar.gz sysdrv/source/buildroot/buildroot-2023.02.6/output/host
           tar -czvf image.tar.gz output/image
