@@ -10,8 +10,9 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - run: |
-          cp myconfig/buildroot_defconfig sysdrv/source/buildroot/buildroot-2023.02.6/configs/luckfox_pico_defconfig
-          ln -s sysdrv/source/buildroot/buildroot-2023.02.6/configs/luckfox_pico_defconfig config/buildroot_defconfig
+          #cp myconfig/buildroot_defconfig sysdrv/source/buildroot/buildroot-2023.02.6/configs/luckfox_pico_defconfig
+          #ln -s sysdrv/source/buildroot/buildroot-2023.02.6/configs/luckfox_pico_defconfig config/buildroot_defconfig
+          cp myconfig/buildroot_defconfig configs/buildroot_defconfig
           cp myconfig/kernel_defconfig sysdrv/source/kernel/arch/arm/configs/luckfox_rv1106_linux_defconfig
           ln -s sysdrv/source/kernel/arch/arm/configs/luckfox_rv1106_linux_defconfig kernel_defconfig
           ln -s sysdrv/source/kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-pro-max.dts config/dts_config
