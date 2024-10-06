@@ -12,6 +12,7 @@ jobs:
       - run: |
           ln -s project/cfg/BoardConfig_IPC/BoardConfig-SPI_NAND-Buildroot-RV1106_Luckfox_Pico_Pro_Max-IPC.mk .BoardConfig.mk
           cp myconfig/kernel_defconfig sysdrv/source/kernel/arch/arm/configs/luckfox_rv1106_linux_defconfig
+          mkdir config
           ln -s sysdrv/source/kernel/arch/arm/configs/luckfox_rv1106_linux_defconfig config/kernel_defconfig
           ln -s sysdrv/source/kernel/arch/arm/boot/dts/rv1106g-luckfox-pico-pro-max.dts config/dts_config
           ./build.sh rootfs
