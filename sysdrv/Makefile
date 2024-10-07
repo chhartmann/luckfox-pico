@@ -598,7 +598,7 @@ else
 	tar xf $(BUILDROOT_DIR)/$(BUILDROOT_VER)/output/images/rootfs.tar -C $(SYSDRV_DIR_OUT_ROOTFS)
 	cp $(SYSDRV_DIR)/tools/board/buildroot/shadow_defconfig $(SYSDRV_DIR_OUT_ROOTFS)/etc/shadow
 	cp $(SYSDRV_DIR)/tools/board/buildroot/sshd_defconfig $(SYSDRV_DIR_OUT_ROOTFS)/etc/ssh/sshd_config
-        mkdir $(SYSDRV_DIR_OUT_ROOTFS)/etc/samba
+	mkdir $(SYSDRV_DIR_OUT_ROOTFS)/etc/samba
 	cp $(SYSDRV_DIR)/tools/board/buildroot/samba_defconfig $(SYSDRV_DIR_OUT_ROOTFS)/etc/samba/smb.conf
 	cp $(SYSDRV_DIR)/tools/board/buildroot/smbpasswd_defconfig $(SYSDRV_DIR_OUT_ROOTFS)/etc/samba/smbpasswd
 	cp $(SYSDRV_DIR)/tools/board/buildroot/profile_defconfig $(SYSDRV_DIR_OUT_ROOTFS)/etc/profile
