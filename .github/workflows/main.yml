@@ -10,11 +10,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - run: |
-          ln -s project/cfg/BoardConfig_IPC/BoardConfig-SPI_NAND-Buildroot-RV1106_Luckfox_Pico_Pro_Max-IPC.mk .BoardConfig.mk
-          export PATH=$PATH:$PWD/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin
-          make -C sysdrv buildroot_create
-          cp myconfig/buildroot_defconfig sysdrv/source/buildroot/buildroot-2023.02.6/configs/luckfox_pico_defconfig
-          ./build.sh         
+          printf '4\n1\n0\n' | ./build.sh         
           tar -czvf host.tar.gz sysdrv/source/buildroot/buildroot-2023.02.6/output/host
           tar -czvf image.tar.gz output/image
       - name: Archive production artifacts
