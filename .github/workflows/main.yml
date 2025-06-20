@@ -4,12 +4,17 @@ on: [push]
 jobs:
   build:
     name: build sdk
-    runs-on: luckfoxtech/luckfox_pico:1.0
+    runs-on: ubuntu-latest
     steps:
+      - run: sudo apt-get install -y git ssh make gcc gcc-multilib g++-multilib module-assistant expect g++ gawk texinfo libssl-dev bison flex fakeroot cmake unzip gperf autoconf device-tree-compiler libncurses5-dev pkg-config bc python-is-python3 passwd openssl openssh-server openssh-client vim file cpio rsync curl
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4      
       - run: |
-          printf '1\n1\n0\n' | ./build.sh         
+          echo "export PATH=$PATH:$PWD/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf" >> $GITHUB_ENV
+          mkdir -p external/lib/firmware/rtlwifi
+          wget https://raw.githubusercontent.com/wkennington/linux-firmware/master/rtlwifi/rtl8723bs_nic.bin -O external/lib/firmware/rtlwifi/rtl8723bs_nic.bin
+          printf '1\n1\n0\n' | ./build.sh conf
+          ./build.sh
           tar -czvf host.tar.gz sysdrv/source/buildroot/buildroot-2023.02.6/output/host
           tar -czvf image.tar.gz output/image
       - name: Archive production artifacts
