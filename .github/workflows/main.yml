@@ -1,0 +1,25 @@
+name: GitHub Actions
+run-name: build luckfox mini image including wifi sdcard driver
+on: [push]
+jobs:
+  build:
+    name: build sdk
+    runs-on: luckfoxtech/luckfox_pico:1.0
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: |
+          printf '1\n1\n0\n' | ./build.sh         
+          tar -czvf host.tar.gz sysdrv/source/buildroot/buildroot-2023.02.6/output/host
+          tar -czvf image.tar.gz output/image
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: buildroot sdk
+          path: host.tar.gz
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: image
+          path: image.tar.gz
+          
