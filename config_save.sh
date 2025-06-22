@@ -1,3 +1,3 @@
 #!/bin/bash
-cp config/* myconfig
-cp .BoardConfig.mk myconfig
+cp config/*defconfig myconfig
+cp .BoardConfig.mk myconfig/BoardConfig.mk
