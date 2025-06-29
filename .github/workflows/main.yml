@@ -12,6 +12,7 @@ jobs:
       - run: |
           echo "export PATH=$PATH:$PWD/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf" >> $GITHUB_ENV
           ./config_restore.sh
+          printf '1\n1\n0\n' | ./build.sh conf
           ./build.sh
           tar -czvf host.tar.gz sysdrv/source/buildroot/buildroot-2023.02.6/output/host
           tar -czvf image.tar.gz output/image
