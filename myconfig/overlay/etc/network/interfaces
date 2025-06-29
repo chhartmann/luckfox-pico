@@ -1,4 +1,4 @@
-# interface file from myconfdig
+# interface file from myconfig
 
 auto lo
 iface lo inet loopback
