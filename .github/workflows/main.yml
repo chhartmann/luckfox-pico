@@ -5,8 +5,11 @@ jobs:
   build:
     name: build sdk
     runs-on: ubuntu-latest
+    container:
+      image: luckfoxtech/luckfox_pico:1.0
+      volumes:
+        - /home/ubuntu/luckfox-pico:/home     
     steps:
-      - run: sudo apt-get install -y git ssh make gcc gcc-multilib g++-multilib module-assistant expect g++ gawk texinfo libssl-dev bison flex fakeroot cmake unzip gperf autoconf device-tree-compiler libncurses5-dev pkg-config bc python-is-python3 passwd openssl openssh-server openssh-client vim file cpio rsync curl
       - name: Check out repository code
         uses: actions/checkout@v4      
       - run: |
