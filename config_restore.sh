@@ -6,7 +6,6 @@ cp -r myconfig/overlay/* project/cfg/BoardConfig_IPC/overlay/overlay-myconfig
 cp myconfig/kernel_defconfig sysdrv/source/kernel/arch/arm/configs/luckfox_rv1106_linux_defconfig
 
 rm -rf project/cfg/BoardConfig_IPC/overlay/overlay-luckfox-buildroot-shadow/etc/samba
-rm project/cfg/BoardConfig_IPC/overlay/overlay-luckfox-buildroot-init/etc/init.d/S99usb0config
 
 cp myconfig/buildroot_defconfig sysdrv/tools/board/buildroot/luckfox_pico_defconfig
 cp myconfig/busybox.config sysdrv/tools/board/buildroot/busybox.config
