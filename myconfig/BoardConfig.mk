@@ -106,6 +106,12 @@ export RK_ENABLE_ROCKCHIP_TEST=y
 # enable rockchip wifi
 export RK_ENABLE_WIFI=y
 
+# disable ADBD
+export RK_ENABLE_ADBD=n
+
+# disable rndis
+export RK_ENABLE_RNDIS=n
+
 # config wifi ssid and passwd
 export LF_WIFI_SSID="Your wifi ssid"
 export LF_WIFI_PSK="Your wifi password"
