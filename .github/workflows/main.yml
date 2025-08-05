@@ -16,13 +16,7 @@ jobs:
           ./config_restore.sh
           printf '1\n1\n0\n' | ./build.sh conf
           ./build.sh
-          tar -czvf host.tar.gz sysdrv/source/buildroot/buildroot-2023.02.6/output/host
           tar -czvf image.tar.gz output/image
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: buildroot sdk
-          path: host.tar.gz
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4
         with:
