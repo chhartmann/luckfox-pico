@@ -1,5 +1,5 @@
 name: GitHub Actions
-run-name: build luckfox pro nax image including wifi sdcard driver
+run-name: build luckfox pro max image including wifi sdcard driver
 on: [push]
 jobs:
   build:
